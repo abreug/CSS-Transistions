@@ -1,0 +1,80 @@
+body {
+   font-family: sans-serif;
+}
+
+.container {
+    width: 100%; /* Largura */
+    height: 100vh; /* Altura */
+     display: flex;
+     justify-content: center; /* Justificar ao meio da pagina */
+     align-items: center; /* Centralizar no meio da pagina */
+}
+
+.card{
+    height: 400px; /* tamanho da imagem altura x largura */
+    width: 500px; 
+    background-image: url('./landscape.jpg'); /* incluir imagem */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* ajustes para caber a imagem toda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter:grayscale(0.5);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-wrapper{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card-wrapper::before{
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0; /* esconde a borda */
+    transition: 0.3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase; /* Deixa tudo maiusculo */
+    letter-spacing: 4px; /* espaço entre as letras */
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper p{
+    font-size: 0px;
+    font-weight: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.card:hover {
+    filter: unset;
+}
+
+.card:hover > .card-wrapper::before {
+    height: 300px;
+    width: 400px;
+    opacity: 1;
+}
+
+.card:hover > .card-wrapper p {
+    opacity: 1;
+    visibility: visible;
+    font-size: 14px;
+}
